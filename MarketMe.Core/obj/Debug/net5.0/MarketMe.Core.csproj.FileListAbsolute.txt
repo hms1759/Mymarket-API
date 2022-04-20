@@ -1,0 +1,15 @@
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\MarketMe.Core.deps.json
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\MarketMe.Core.dll
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\ref\MarketMe.Core.dll
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\MarketMe.Core.pdb
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\MarketMe.Share.dll
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\MarketMe.Share.pdb
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.AssemblyInfo.cs
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.dll
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\ref\MarketMe.Core.dll
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.pdb
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.csproj.CopyComplete
