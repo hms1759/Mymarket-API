@@ -121,3 +121,4 @@ C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\runtimes\win\lib
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Humanizer.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Dapper.dll
+C:\Users\hp\source\repos\Mymarket-API\MarketMe\obj\Debug\net5.0\MarketMe.csproj.CopyComplete

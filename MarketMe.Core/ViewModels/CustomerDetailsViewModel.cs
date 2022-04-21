@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarketMe.Core.ViewModels
 {
-    class CustomerDetailsViewModel
+    public class CustomersDetailsViewModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
