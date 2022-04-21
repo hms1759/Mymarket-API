@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "JQNapwNRreYnVdrG/Hs4krcqUCwrXfJdGdGxQtUr2SsxnxTQuJBPNkKAGHd+KhFWlwLd0WLzLMIiu0Ad2nCDtw==",
+  "dgSpecHash": "mgufaafRtWQ8IOTWv5ItkQn6Vv6a9dCg/xIWrgQy3vNvpkke/DWCWoR1+8Ht4JjpeLVy0yl4B9RXaiG1uGNWsQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\source\\repos\\Mymarket-API\\MarketMe.Core\\MarketMe.Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hp\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.server.abstractions.2.2.0.nupkg.sha512",

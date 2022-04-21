@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5hJUQE34+ik/r3myTUHgUJrbjd+WImRycNAWZer0mu/CntuQfMAXonuwPK+WdVsuUnGwV+6t5ZENdJ1sWykZlQ==",
+  "dgSpecHash": "iXTgvpFrybN/P4Y2tLnmqJtGLnaK3BnDjtwKz5A0e9ImzM7gVLUiKTzIhX3rTMcklfwlmaqKfr9nXY5wZ+tBVg==",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\source\\repos\\Mymarket-API\\MarketMe.Share\\MarketMe.Share.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hp\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
