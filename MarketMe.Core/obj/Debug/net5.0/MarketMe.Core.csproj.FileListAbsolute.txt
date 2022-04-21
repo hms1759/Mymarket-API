@@ -12,4 +12,7 @@ C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Co
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\ref\MarketMe.Core.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.pdb
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\MarketMe.Core.runtimeconfig.json
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\MarketMe.Core.runtimeconfig.dev.json
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.genruntimeconfig.cache
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.csproj.CopyComplete

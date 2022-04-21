@@ -21,7 +21,7 @@ namespace MarketMe
     public partial class Startup
     {
 
-        private ILogger<Startup> _logger;
+        private readonly ILogger<Startup> _logger;
         public Startup(IConfiguration configuration, IHostEnvironment hostingEnvironment)
         {
             Configuration = configuration;
@@ -64,6 +64,9 @@ namespace MarketMe
             {
                 endpoints.MapControllers();
             });
+
+            TableMigrationScript();
+            StoredProcedureMigrationScript();
         }
 
 
