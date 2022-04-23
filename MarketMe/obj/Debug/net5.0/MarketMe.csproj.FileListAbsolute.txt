@@ -101,7 +101,6 @@ C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Microsoft.Identi
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\System.Runtime.Caching.dll
@@ -122,3 +121,5 @@ C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Humanizer.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Dapper.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\obj\Debug\net5.0\MarketMe.csproj.CopyComplete
+C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

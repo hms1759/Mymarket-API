@@ -1,4 +1,5 @@
 ﻿using MarketMe.Core.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MarketMe.Core.MarketDbContexts
 {
-   public class MarketDbContext : DbContext
+   public class MarketDbContext : IdentityDbContext
     {
             public MarketDbContext(DbContextOptions<MarketDbContext> options) : base(options)
             {

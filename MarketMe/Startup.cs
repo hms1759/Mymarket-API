@@ -42,6 +42,7 @@ namespace MarketMe
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MarketMe", Version = "v1" });
             });
             ConfigureDi(services);
+            ConfigureAuth(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
