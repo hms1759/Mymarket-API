@@ -25,4 +25,8 @@
     <ProjectReference Include="..\MarketMe.Share\MarketMe.Share.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
 </Project>

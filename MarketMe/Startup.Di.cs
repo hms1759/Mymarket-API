@@ -1,6 +1,7 @@
 ﻿using MarketMe.Core.IServices;
 using MarketMe.Core.MarketDbContexts;
 using MarketMe.Core.Services;
+using MarketMe.Share.Validation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +20,8 @@ namespace MarketMe
     {
         public void ConfigureDi(IServiceCollection services)
         {
+            services.AddTransient<IRegexValidation, RegexValidation>();
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<ICustomersDetailsService, CustomersDetailsService>();
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             services.AddSingleton<IDbConnection>(db =>

@@ -2,7 +2,6 @@ C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\bin\Debug\net5.0\MarketMe.S
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\bin\Debug\net5.0\MarketMe.Share.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\bin\Debug\net5.0\ref\MarketMe.Share.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\bin\Debug\net5.0\MarketMe.Share.pdb
-C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\obj\Debug\net5.0\MarketMe.Share.csproj.AssemblyReference.cache
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\obj\Debug\net5.0\MarketMe.Share.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\obj\Debug\net5.0\MarketMe.Share.AssemblyInfoInputs.cache
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\obj\Debug\net5.0\MarketMe.Share.AssemblyInfo.cs
@@ -10,3 +9,4 @@ C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\obj\Debug\net5.0\MarketMe.S
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\obj\Debug\net5.0\MarketMe.Share.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\obj\Debug\net5.0\ref\MarketMe.Share.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\obj\Debug\net5.0\MarketMe.Share.pdb
+C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\obj\Debug\net5.0\MarketMe.Share.csproj.AssemblyReference.cache

@@ -1,7 +1,9 @@
 using DbUp;
 using DbUp.Engine.Output;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -35,7 +37,6 @@ namespace MarketMe
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -43,6 +44,7 @@ namespace MarketMe
             });
             ConfigureDi(services);
             ConfigureAuth(services);
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,18 +56,39 @@ namespace MarketMe
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MarketMe v1"));
             }
+            app.Use(async (ctx, next) =>
+            {
+                ctx.Request.EnableBuffering();
+
+                if (ctx.Request.IsAjaxRequest() || ctx.Request.Path.Value.StartsWith("/api", StringComparison.OrdinalIgnoreCase)
+                 || ctx.Request.Path.Value.StartsWith("/apps", StringComparison.OrdinalIgnoreCase))
+                {
+                    var statusCodeFeature = ctx.Features.Get<IStatusCodePagesFeature>();
+
+                    if (statusCodeFeature != null && statusCodeFeature.Enabled)
+                        statusCodeFeature.Enabled = false;
+                }
+
+                await next();
+            });
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(name: "AppArea",
+                    pattern: "{area:exists}/{controller=Dashboard}/{action=index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapControllers();
             });
-
             TableMigrationScript();
             StoredProcedureMigrationScript();
         }
@@ -131,5 +154,27 @@ namespace MarketMe
             Log.Warning(format, args);
         }
     }
+
+    public static class HttpRequestExtensions
+    {
+        private const string RequestedWithHeader = "X-Requested-With";
+        private const string XmlHttpRequest = "XMLHttpRequest";
+
+        public static bool IsAjaxRequest(this HttpRequest request)
+        {
+            if (request == null)
+            {
+                throw new ArgumentNullException("request");
+            }
+
+            if (request.Headers != null)
+            {
+                return request.Headers[RequestedWithHeader] == XmlHttpRequest;
+            }
+
+            return false;
+        }
+    }
+
 }
 

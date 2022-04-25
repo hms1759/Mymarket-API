@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketMe", "MarketMe.csproj", "{EF8DA98A-6382-47AA-8C6F-D4FD291B6A0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketMe", "MarketMe.csproj", "{EF8DA98A-6382-47AA-8C6F-D4FD291B6A0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketMe.Core", "..\MarketMe.Core\MarketMe.Core.csproj", "{EAC61AB5-5238-4561-8161-FCC998F755F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketMe.Core", "..\MarketMe.Core\MarketMe.Core.csproj", "{EAC61AB5-5238-4561-8161-FCC998F755F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketMe.Share", "..\MarketMe.Share\MarketMe.Share.csproj", "{E1ECBCD5-6D01-42D2-9F6A-7F8FC5E61275}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketMe.Share", "..\MarketMe.Share\MarketMe.Share.csproj", "{E1ECBCD5-6D01-42D2-9F6A-7F8FC5E61275}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

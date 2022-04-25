@@ -11,16 +11,16 @@ GO
 BEGIN TRANSACTION;
 GO
 
-CREATE TABLE [AspNetRoles] (
+CREATE TABLE [MarketmeRoles] (
     [Id] nvarchar(450) NOT NULL,
     [Name] nvarchar(256) NULL,
     [NormalizedName] nvarchar(256) NULL,
     [ConcurrencyStamp] nvarchar(max) NULL,
-    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+    CONSTRAINT [PK_MarketmeRoles] PRIMARY KEY ([Id])
 );
 GO
 
-CREATE TABLE [AspNetUsers] (
+CREATE TABLE [MarketmeUsers] (
     [Id] nvarchar(450) NOT NULL,
     [UserName] nvarchar(256) NULL,
     [NormalizedUserName] nvarchar(256) NULL,
@@ -36,7 +36,7 @@ CREATE TABLE [AspNetUsers] (
     [LockoutEnd] datetimeoffset NULL,
     [LockoutEnabled] bit NOT NULL,
     [AccessFailedCount] int NOT NULL,
-    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+    CONSTRAINT [PK_MarketmeUsers] PRIMARY KEY ([Id])
 );
 GO
 
@@ -61,74 +61,74 @@ CREATE TABLE [CustomersDetails] (
 );
 GO
 
-CREATE TABLE [AspNetRoleClaims] (
+CREATE TABLE [MarketmeRoleClaims] (
     [Id] int NOT NULL IDENTITY,
     [RoleId] nvarchar(450) NOT NULL,
     [ClaimType] nvarchar(max) NULL,
     [ClaimValue] nvarchar(max) NULL,
-    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
-    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_MarketmeRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_MarketmeRoleClaims_MarketmeRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [MarketmeRoles] ([Id]) ON DELETE CASCADE
 );
 GO
 
-CREATE TABLE [AspNetUserClaims] (
+CREATE TABLE [MarketmeUserClaims] (
     [Id] int NOT NULL IDENTITY,
     [UserId] nvarchar(450) NOT NULL,
     [ClaimType] nvarchar(max) NULL,
     [ClaimValue] nvarchar(max) NULL,
-    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
-    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_MarketmeUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_MarketmeUserClaims_MarketmeUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [MarketmeUsers] ([Id]) ON DELETE CASCADE
 );
 GO
 
-CREATE TABLE [AspNetUserLogins] (
+CREATE TABLE [MarketmeUserLogins] (
     [LoginProvider] nvarchar(450) NOT NULL,
     [ProviderKey] nvarchar(450) NOT NULL,
     [ProviderDisplayName] nvarchar(max) NULL,
     [UserId] nvarchar(450) NOT NULL,
-    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
-    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_MarketmeUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_MarketmeUserLogins_MarketmeUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [MarketmeUsers] ([Id]) ON DELETE CASCADE
 );
 GO
 
-CREATE TABLE [AspNetUserRoles] (
+CREATE TABLE [MarketmeUserRoles] (
     [UserId] nvarchar(450) NOT NULL,
     [RoleId] nvarchar(450) NOT NULL,
-    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
-    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
-    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_MarketmeUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_MarketmeUserRoles_MarketmeRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [MarketmeRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_MarketmeUserRoles_MarketmeUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [MarketmeUsers] ([Id]) ON DELETE CASCADE
 );
 GO
 
-CREATE TABLE [AspNetUserTokens] (
+CREATE TABLE [MarketmeUserTokens] (
     [UserId] nvarchar(450) NOT NULL,
     [LoginProvider] nvarchar(450) NOT NULL,
     [Name] nvarchar(450) NOT NULL,
     [Value] nvarchar(max) NULL,
-    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
-    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_MarketmeUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_MarketmeUserTokens_MarketmeUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [MarketmeUsers] ([Id]) ON DELETE CASCADE
 );
 GO
 
-CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+CREATE INDEX [IX_MarketmeRoleClaims_RoleId] ON [MarketmeRoleClaims] ([RoleId]);
 GO
 
-CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+CREATE UNIQUE INDEX [RoleNameIndex] ON [MarketmeRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
 GO
 
-CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+CREATE INDEX [IX_MarketmeUserClaims_UserId] ON [MarketmeUserClaims] ([UserId]);
 GO
 
-CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+CREATE INDEX [IX_MarketmeUserLogins_UserId] ON [MarketmeUserLogins] ([UserId]);
 GO
 
-CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+CREATE INDEX [IX_MarketmeUserRoles_RoleId] ON [MarketmeUserRoles] ([RoleId]);
 GO
 
-CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+CREATE INDEX [EmailIndex] ON [MarketmeUsers] ([NormalizedEmail]);
 GO
 
-CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+CREATE UNIQUE INDEX [UserNameIndex] ON [MarketmeUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
 GO
 
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
