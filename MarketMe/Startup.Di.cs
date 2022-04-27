@@ -1,6 +1,7 @@
 ﻿using MarketMe.Core.IServices;
 using MarketMe.Core.MarketDbContexts;
 using MarketMe.Core.Services;
+using MarketMe.Share.Models;
 using MarketMe.Share.Validation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -23,13 +24,20 @@ namespace MarketMe
             services.AddTransient<IRegexValidation, RegexValidation>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ICustomersDetailsService, CustomersDetailsService>();
-            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
-            services.AddSingleton<IDbConnection>(db =>
-            {
-                var connectionString = Configuration.GetConnectionString("Defualt");
-                var connection = new SqlConnection(connectionString);
-                return connection;
-            });
+
+            string dbConnectionString = this.Configuration.GetConnectionString("Default");
+
+            // Inject IDbConnection, with implementation from SqlConnection class.
+            services.AddTransient<IDbConnection>((sp) => new SqlConnection(dbConnectionString));
+
+
+            //services.AddTransient<IDbConnection>(db =>
+            //{
+            //    var connectionString = Configuration.GetConnectionString("Default");
+            //    var connection = new SqlConnection(connectionString);
+            //    return connection;
+            //});
+            services.AddTransient(typeof(IUnitOfWork), typeof(UnitOfWork));
 
             services.AddDbContext<MarketDbContext>(options =>
             {
@@ -37,7 +45,20 @@ namespace MarketMe
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
 
             });
+            services.AddCors(o =>
+            {
+                o.AddPolicy("AllowOrigin",
+                    options => options.AllowCredentials()
+                                    .AllowAnyHeader()
+                                     .AllowAnyMethod()
+                                     .AllowAnyHeader());
+            });
+
+        var appSettings = new AppSettings();
+        Configuration.Bind(nameof(AppSettings), appSettings);
+            services.AddSingleton(appSettings);
         }
+
 
     }
 }

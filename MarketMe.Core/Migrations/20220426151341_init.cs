@@ -8,7 +8,7 @@ namespace MarketMe.Core.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MarketmeRoles",
+                name: "AspNetRoles",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -18,11 +18,11 @@ namespace MarketMe.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MarketmeRoles", x => x.Id);
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "MarketmeUsers",
+                name: "AspNetUsers",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -43,7 +43,7 @@ namespace MarketMe.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MarketmeUsers", x => x.Id);
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,13 +59,13 @@ namespace MarketMe.Core.Migrations
                     BusinessName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BusinessEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BusinessAddress = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -73,7 +73,7 @@ namespace MarketMe.Core.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MarketmeRoleClaims",
+                name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -84,17 +84,17 @@ namespace MarketMe.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MarketmeRoleClaims", x => x.Id);
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MarketmeRoleClaims_MarketmeRoles_RoleId",
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "MarketmeRoles",
+                        principalTable: "AspNetRoles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "MarketmeUserClaims",
+                name: "AspNetUserClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -105,17 +105,17 @@ namespace MarketMe.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MarketmeUserClaims", x => x.Id);
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MarketmeUserClaims_MarketmeUsers_UserId",
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "MarketmeUsers",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "MarketmeUserLogins",
+                name: "AspNetUserLogins",
                 columns: table => new
                 {
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -125,17 +125,17 @@ namespace MarketMe.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MarketmeUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
-                        name: "FK_MarketmeUserLogins_MarketmeUsers_UserId",
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "MarketmeUsers",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "MarketmeUserRoles",
+                name: "AspNetUserRoles",
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -143,23 +143,23 @@ namespace MarketMe.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MarketmeUserRoles", x => new { x.UserId, x.RoleId });
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
                     table.ForeignKey(
-                        name: "FK_MarketmeUserRoles_MarketmeRoles_RoleId",
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "MarketmeRoles",
+                        principalTable: "AspNetRoles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_MarketmeUserRoles_MarketmeUsers_UserId",
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "MarketmeUsers",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "MarketmeUserTokens",
+                name: "AspNetUserTokens",
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -169,50 +169,50 @@ namespace MarketMe.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MarketmeUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
                     table.ForeignKey(
-                        name: "FK_MarketmeUserTokens_MarketmeUsers_UserId",
+                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "MarketmeUsers",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MarketmeRoleClaims_RoleId",
-                table: "MarketmeRoleClaims",
+                name: "IX_AspNetRoleClaims_RoleId",
+                table: "AspNetRoleClaims",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
-                table: "MarketmeRoles",
+                table: "AspNetRoles",
                 column: "NormalizedName",
                 unique: true,
                 filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MarketmeUserClaims_UserId",
-                table: "MarketmeUserClaims",
+                name: "IX_AspNetUserClaims_UserId",
+                table: "AspNetUserClaims",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MarketmeUserLogins_UserId",
-                table: "MarketmeUserLogins",
+                name: "IX_AspNetUserLogins_UserId",
+                table: "AspNetUserLogins",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MarketmeUserRoles_RoleId",
-                table: "MarketmeUserRoles",
+                name: "IX_AspNetUserRoles_RoleId",
+                table: "AspNetUserRoles",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                table: "MarketmeUsers",
+                table: "AspNetUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                table: "MarketmeUsers",
+                table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
@@ -221,28 +221,28 @@ namespace MarketMe.Core.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MarketmeRoleClaims");
+                name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
-                name: "MarketmeUserClaims");
+                name: "AspNetUserClaims");
 
             migrationBuilder.DropTable(
-                name: "MarketmeUserLogins");
+                name: "AspNetUserLogins");
 
             migrationBuilder.DropTable(
-                name: "MarketmeUserRoles");
+                name: "AspNetUserRoles");
 
             migrationBuilder.DropTable(
-                name: "MarketmeUserTokens");
+                name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
                 name: "CustomersDetails");
 
             migrationBuilder.DropTable(
-                name: "MarketmeRoles");
+                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "MarketmeUsers");
+                name: "AspNetUsers");
         }
     }
 }

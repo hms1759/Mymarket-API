@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace MarketMe.Core.Models
 {
-  public  class CustomersDetails : Basics
+  public  class CustomersDetails : BaseEntity
     {
+       
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }

@@ -130,3 +130,996 @@ VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13
 2022-04-25 05:13:18.958 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 78
 2022-04-25 05:13:18.961 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
 2022-04-25 05:13:18.964 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 05:45:05.834 +01:00 [INF] Entity Framework Core 5.0.0 initialized 'MarketDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-25 05:45:06.691 +01:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-04-25 05:45:06.805 +01:00 [INF] Executed DbCommand (86ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-04-25 05:45:07.151 +01:00 [INF] Beginning database upgrade
+2022-04-25 05:45:07.168 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 05:45:07.253 +01:00 [INF] Journal table does not exist
+2022-04-25 05:45:07.502 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 05:45:07.578 +01:00 [INF] Beginning database upgrade
+2022-04-25 05:45:07.582 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 05:45:07.699 +01:00 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-25 05:45:08.058 +01:00 [INF] Beginning database upgrade
+2022-04-25 05:45:08.063 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 05:45:08.067 +01:00 [INF] Journal table does not exist
+2022-04-25 05:45:08.072 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 05:45:08.083 +01:00 [INF] Beginning database upgrade
+2022-04-25 05:45:08.087 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 05:45:08.102 +01:00 [INF] Journal table does not exist
+2022-04-25 05:45:08.106 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 05:45:08.223 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/index.html - -
+2022-04-25 05:45:08.463 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/index.html - - - 200 - text/html;charset=utf-8 248.3831ms
+2022-04-25 05:45:08.720 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - -
+2022-04-25 05:45:08.798 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - - - 404 - - 78.2464ms
+2022-04-25 05:45:08.879 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - -
+2022-04-25 05:45:08.884 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - - - 404 - - 5.7431ms
+2022-04-25 05:45:08.965 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - -
+2022-04-25 05:45:09.091 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 125.8938ms
+2022-04-25 05:46:14.981 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 78
+2022-04-25 05:46:14.990 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 05:46:15.074 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 05:46:22.409 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 7324.8476ms
+2022-04-25 05:46:22.415 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 05:46:22.464 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotImplementedException: The method or operation is not implemented.
+   at MarketMe.Share.Validation.RegexValidation.EmailValidation(String password) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Validation\RegexValidation.cs:line 21
+   at MarketMe.Core.Services.UserService.UserRegistration(RegistrationViewModel model) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\Services\UserService.cs:line 41
+   at MarketMe.Controllers.Apis.AccountController.RegisterAsync(RegistrationViewModel model) in C:\Users\hp\source\repos\Mymarket-API\MarketMe\Apis\AccountController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at MarketMe.Startup.<>c.<<Configure>b__11_1>d.MoveNext() in C:\Users\hp\source\repos\Mymarket-API\MarketMe\Startup.cs:line 72
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-25 05:46:22.636 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 78 - 500 - text/plain 7655.6371ms
+2022-04-25 08:28:52.249 +01:00 [INF] Entity Framework Core 5.0.0 initialized 'MarketDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-25 08:28:52.678 +01:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-04-25 08:28:52.762 +01:00 [INF] Executed DbCommand (68ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-04-25 08:28:52.970 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:28:52.980 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 08:28:53.005 +01:00 [INF] Journal table does not exist
+2022-04-25 08:28:53.046 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:28:53.086 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:28:53.090 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:28:53.151 +01:00 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-25 08:28:53.403 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:28:53.406 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 08:28:53.408 +01:00 [INF] Journal table does not exist
+2022-04-25 08:28:53.411 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:28:53.416 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:28:53.418 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 08:28:53.428 +01:00 [INF] Journal table does not exist
+2022-04-25 08:28:53.431 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:28:53.507 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/index.html - -
+2022-04-25 08:28:53.507 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - -
+2022-04-25 08:28:53.507 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - -
+2022-04-25 08:28:53.653 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - - - 404 - - 148.5567ms
+2022-04-25 08:28:53.654 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - - - 404 - - 148.5519ms
+2022-04-25 08:28:53.674 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/index.html - - - 200 - text/html;charset=utf-8 171.0355ms
+2022-04-25 08:28:53.925 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - -
+2022-04-25 08:28:54.010 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 85.0733ms
+2022-04-25 08:29:04.962 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 78
+2022-04-25 08:29:04.968 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:29:05.043 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 08:29:10.714 +01:00 [INF] Executing ObjectResult, writing value of type 'MarketMe.Share.Response.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-04-25 08:29:10.746 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 5693.6373ms
+2022-04-25 08:29:10.748 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:29:10.754 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 78 - 400 - application/json;+charset=utf-8 5793.0058ms
+2022-04-25 08:29:19.660 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 78
+2022-04-25 08:29:19.662 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:29:19.665 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 08:31:21.427 +01:00 [INF] Entity Framework Core 5.0.0 initialized 'MarketDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-25 08:31:22.012 +01:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-04-25 08:31:22.072 +01:00 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-04-25 08:31:22.271 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:31:22.284 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 08:31:22.296 +01:00 [INF] Journal table does not exist
+2022-04-25 08:31:22.333 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:31:22.368 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:31:22.371 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:31:22.415 +01:00 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-25 08:31:22.644 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:31:22.647 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 08:31:22.649 +01:00 [INF] Journal table does not exist
+2022-04-25 08:31:22.653 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:31:22.660 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:31:22.664 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 08:31:22.680 +01:00 [INF] Journal table does not exist
+2022-04-25 08:31:22.687 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:31:22.787 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/index.html - -
+2022-04-25 08:31:22.887 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/index.html - - - 200 - text/html;charset=utf-8 101.1353ms
+2022-04-25 08:31:23.041 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - -
+2022-04-25 08:31:23.082 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - - - 404 - - 41.3776ms
+2022-04-25 08:31:23.147 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - -
+2022-04-25 08:31:23.152 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - - - 404 - - 5.6004ms
+2022-04-25 08:31:23.199 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - -
+2022-04-25 08:31:23.276 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 77.0037ms
+2022-04-25 08:31:32.527 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 78
+2022-04-25 08:31:32.531 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:31:32.575 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 08:33:28.305 +01:00 [INF] Executing ObjectResult, writing value of type 'MarketMe.Share.Response.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-04-25 08:33:28.340 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 115754.772ms
+2022-04-25 08:33:28.342 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:33:28.356 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 78 - 400 - application/json;+charset=utf-8 115828.8612ms
+2022-04-25 08:33:43.696 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 79
+2022-04-25 08:33:43.699 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:33:43.702 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 08:33:54.380 +01:00 [INF] Executing ObjectResult, writing value of type 'MarketMe.Share.Response.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-04-25 08:33:54.383 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 10680.0042ms
+2022-04-25 08:33:54.391 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:33:54.394 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 79 - 400 - application/json;+charset=utf-8 10698.5164ms
+2022-04-25 08:34:02.315 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 79
+2022-04-25 08:34:02.319 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:34:02.321 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 08:34:09.525 +01:00 [INF] Executing ObjectResult, writing value of type 'MarketMe.Share.Response.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-04-25 08:34:09.530 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 7206.7196ms
+2022-04-25 08:34:09.533 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:34:09.536 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 79 - 400 - application/json;+charset=utf-8 7220.7794ms
+2022-04-25 08:34:21.249 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 80
+2022-04-25 08:34:21.252 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:34:21.257 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 08:34:30.190 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 8930.5472ms
+2022-04-25 08:34:30.192 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 08:34:30.235 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotImplementedException: The method or operation is not implemented.
+   at MarketMe.Share.Validation.RegexValidation.EmailValidation(String password) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Validation\RegexValidation.cs:line 21
+   at MarketMe.Core.Services.UserService.UserRegistration(RegistrationViewModel model)
+   at MarketMe.Controllers.Apis.AccountController.RegisterAsync(RegistrationViewModel model) in C:\Users\hp\source\repos\Mymarket-API\MarketMe\Apis\AccountController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at MarketMe.Startup.<>c.<<Configure>b__11_1>d.MoveNext() in C:\Users\hp\source\repos\Mymarket-API\MarketMe\Startup.cs:line 72
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-25 08:34:30.441 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 80 - 500 - text/plain 9190.2806ms
+2022-04-25 08:42:45.898 +01:00 [INF] Entity Framework Core 5.0.0 initialized 'MarketDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-25 08:42:47.025 +01:00 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-04-25 08:42:47.195 +01:00 [INF] Executed DbCommand (119ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-04-25 08:42:47.711 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:42:47.731 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 08:42:47.755 +01:00 [INF] Journal table does not exist
+2022-04-25 08:42:47.816 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:42:47.888 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:42:47.892 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:42:47.993 +01:00 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-25 08:42:48.339 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:42:48.343 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 08:42:48.353 +01:00 [INF] Journal table does not exist
+2022-04-25 08:42:48.369 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:42:48.379 +01:00 [INF] Beginning database upgrade
+2022-04-25 08:42:48.385 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 08:42:48.401 +01:00 [INF] Journal table does not exist
+2022-04-25 08:42:48.405 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 08:42:48.549 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/index.html - -
+2022-04-25 08:42:48.875 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/index.html - - - 200 - text/html;charset=utf-8 199.8583ms
+2022-04-25 08:42:49.114 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - -
+2022-04-25 08:42:49.205 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - - - 404 - - 91.0872ms
+2022-04-25 08:42:49.364 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - -
+2022-04-25 08:42:49.376 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - - - 404 - - 12.0555ms
+2022-04-25 08:42:49.474 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - -
+2022-04-25 08:42:49.659 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 184.2271ms
+2022-04-25 09:11:21.965 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 80
+2022-04-25 09:11:21.973 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 09:11:22.016 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 09:12:02.525 +01:00 [INF] Executing ObjectResult, writing value of type 'MarketMe.Share.Response.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-04-25 09:12:02.551 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 40531.4535ms
+2022-04-25 09:12:02.553 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 09:12:02.556 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 80 - 400 - application/json;+charset=utf-8 40596.9799ms
+2022-04-25 09:17:59.794 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 81
+2022-04-25 09:17:59.800 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 09:17:59.804 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 09:18:13.989 +01:00 [INF] Executing ObjectResult, writing value of type 'MarketMe.Share.Response.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-04-25 09:18:13.994 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 14189.8462ms
+2022-04-25 09:18:13.997 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 09:18:14.003 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 81 - 400 - application/json;+charset=utf-8 14211.3158ms
+2022-04-25 09:21:28.127 +01:00 [INF] Entity Framework Core 5.0.0 initialized 'MarketDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-25 09:21:28.652 +01:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-04-25 09:21:28.709 +01:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-04-25 09:21:28.945 +01:00 [INF] Beginning database upgrade
+2022-04-25 09:21:28.960 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 09:21:29.005 +01:00 [INF] Journal table does not exist
+2022-04-25 09:21:29.060 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 09:21:29.111 +01:00 [INF] Beginning database upgrade
+2022-04-25 09:21:29.115 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 09:21:29.175 +01:00 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-25 09:21:29.473 +01:00 [INF] Beginning database upgrade
+2022-04-25 09:21:29.476 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 09:21:29.503 +01:00 [INF] Journal table does not exist
+2022-04-25 09:21:29.508 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 09:21:29.528 +01:00 [INF] Beginning database upgrade
+2022-04-25 09:21:29.537 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 09:21:29.554 +01:00 [INF] Journal table does not exist
+2022-04-25 09:21:29.558 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 09:21:29.670 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/index.html - -
+2022-04-25 09:21:29.855 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/index.html - - - 200 - text/html;charset=utf-8 188.9402ms
+2022-04-25 09:21:30.065 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - -
+2022-04-25 09:21:30.116 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - - - 404 - - 51.6472ms
+2022-04-25 09:21:30.213 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - -
+2022-04-25 09:21:30.221 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - - - 404 - - 8.1100ms
+2022-04-25 09:21:30.304 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - -
+2022-04-25 09:21:30.465 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 160.9379ms
+2022-04-25 09:22:42.437 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 94
+2022-04-25 09:22:42.450 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 09:22:42.498 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 09:22:49.906 +01:00 [INF] Executing ObjectResult, writing value of type 'MarketMe.Share.Response.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-04-25 09:22:49.933 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 7426.3383ms
+2022-04-25 09:22:49.935 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 09:22:49.946 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 94 - 400 - application/json;+charset=utf-8 7510.3418ms
+2022-04-25 09:22:58.589 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 94
+2022-04-25 09:22:58.591 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 09:22:58.593 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 09:23:08.120 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 9524.6036ms
+2022-04-25 09:23:08.125 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 09:23:08.164 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Shared.Dapper.Repository.DapperRepository`1.get_Connection() in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Dapper\Repository\DapperRepository.cs:line 127
+   at Shared.Dapper.Repository.DapperRepository`1.CreateAsync(TEntity entity, IDbTransaction transaction) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Dapper\Repository\DapperRepository.cs:line 262
+   at Shared.Dapper.Service`1.AddAsync(TEntity entity, IDbTransaction transaction) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Dapper\Service.cs:line 104
+   at MarketMe.Core.Services.UserService.UserRegistration(RegistrationViewModel model) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\Services\UserService.cs:line 64
+   at MarketMe.Controllers.Apis.AccountController.RegisterAsync(RegistrationViewModel model) in C:\Users\hp\source\repos\Mymarket-API\MarketMe\Apis\AccountController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at MarketMe.Startup.<>c.<<Configure>b__11_1>d.MoveNext() in C:\Users\hp\source\repos\Mymarket-API\MarketMe\Startup.cs:line 72
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-25 09:23:08.248 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 94 - 500 - text/plain 9660.9199ms
+2022-04-25 09:56:22.043 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 94
+2022-04-25 09:56:22.051 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 09:56:22.054 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 09:56:29.509 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 7452.2485ms
+2022-04-25 09:56:29.511 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 09:56:29.545 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Shared.Dapper.Repository.DapperRepository`1.get_Connection() in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Dapper\Repository\DapperRepository.cs:line 127
+   at Shared.Dapper.Repository.DapperRepository`1.CreateAsync(TEntity entity, IDbTransaction transaction) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Dapper\Repository\DapperRepository.cs:line 262
+   at Shared.Dapper.Service`1.AddAsync(TEntity entity, IDbTransaction transaction) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Dapper\Service.cs:line 104
+   at MarketMe.Core.Services.UserService.UserRegistration(RegistrationViewModel model) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\Services\UserService.cs:line 64
+   at MarketMe.Controllers.Apis.AccountController.RegisterAsync(RegistrationViewModel model)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at MarketMe.Startup.<>c.<<Configure>b__11_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-25 09:56:29.575 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 94 - 500 - text/plain 7559.4713ms
+2022-04-25 20:18:58.279 +01:00 [INF] Entity Framework Core 5.0.0 initialized 'MarketDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-25 20:18:59.961 +01:00 [INF] Executed DbCommand (109ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-04-25 20:19:00.733 +01:00 [INF] Executed DbCommand (689ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-04-25 20:19:03.245 +01:00 [INF] Beginning database upgrade
+2022-04-25 20:19:03.292 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 20:19:03.408 +01:00 [INF] Journal table does not exist
+2022-04-25 20:19:03.691 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 20:19:03.890 +01:00 [INF] Beginning database upgrade
+2022-04-25 20:19:03.896 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 20:19:04.161 +01:00 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-25 20:19:04.874 +01:00 [INF] Beginning database upgrade
+2022-04-25 20:19:04.884 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 20:19:04.889 +01:00 [INF] Journal table does not exist
+2022-04-25 20:19:04.916 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 20:19:04.928 +01:00 [INF] Beginning database upgrade
+2022-04-25 20:19:04.936 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 20:19:04.967 +01:00 [INF] Journal table does not exist
+2022-04-25 20:19:04.988 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 20:19:05.318 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/index.html - -
+2022-04-25 20:19:05.796 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/index.html - - - 200 - text/html;charset=utf-8 494.6743ms
+2022-04-25 20:19:06.126 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - -
+2022-04-25 20:19:06.247 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - - - 404 - - 121.5376ms
+2022-04-25 20:19:06.412 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - -
+2022-04-25 20:19:06.450 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - - - 404 - - 38.3224ms
+2022-04-25 20:19:06.581 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - -
+2022-04-25 20:19:06.919 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 328.2218ms
+2022-04-25 20:19:28.531 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 94
+2022-04-25 20:19:28.539 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 20:19:28.641 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 20:20:04.557 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 35904.1407ms
+2022-04-25 20:20:04.561 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 20:20:04.619 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Shared.Dapper.Repository.DapperRepository`1.get_Connection() in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Dapper\Repository\DapperRepository.cs:line 127
+   at Shared.Dapper.Repository.DapperRepository`1.CreateAsync(TEntity entity, IDbTransaction transaction) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Dapper\Repository\DapperRepository.cs:line 262
+   at Shared.Dapper.Service`1.AddAsync(TEntity entity, IDbTransaction transaction) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Share\Dapper\Service.cs:line 104
+   at MarketMe.Core.Services.UserService.UserRegistration(RegistrationViewModel model) in C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\Services\UserService.cs:line 64
+   at MarketMe.Controllers.Apis.AccountController.RegisterAsync(RegistrationViewModel model) in C:\Users\hp\source\repos\Mymarket-API\MarketMe\Apis\AccountController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at MarketMe.Startup.<>c.<<Configure>b__11_2>d.MoveNext() in C:\Users\hp\source\repos\Mymarket-API\MarketMe\Startup.cs:line 76
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-25 20:20:04.767 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 94 - 500 - text/plain 36235.1728ms
+2022-04-25 20:25:58.955 +01:00 [INF] Entity Framework Core 5.0.0 initialized 'MarketDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-25 20:25:59.973 +01:00 [INF] Executed DbCommand (67ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-04-25 20:26:00.159 +01:00 [INF] Executed DbCommand (145ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2022-04-25 20:26:00.753 +01:00 [INF] Beginning database upgrade
+2022-04-25 20:26:00.770 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 20:26:00.801 +01:00 [INF] Journal table does not exist
+2022-04-25 20:26:00.885 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 20:26:00.970 +01:00 [INF] Beginning database upgrade
+2022-04-25 20:26:00.975 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 20:26:01.071 +01:00 [INF] User profile is available. Using 'C:\Users\hp\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-25 20:26:01.647 +01:00 [INF] Beginning database upgrade
+2022-04-25 20:26:01.652 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 20:26:01.665 +01:00 [INF] Journal table does not exist
+2022-04-25 20:26:01.671 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Tables'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 20:26:01.716 +01:00 [INF] Beginning database upgrade
+2022-04-25 20:26:01.724 +01:00 [INF] Checking whether journal table exists..
+2022-04-25 20:26:01.751 +01:00 [INF] Journal table does not exist
+2022-04-25 20:26:01.756 +01:00 [ERR] Upgrade failed due to an unexpected exception:
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\Sql\Sprocs'.
+   at System.IO.Enumeration.FileSystemEnumerator`1.CreateDirectoryHandle(String path, Boolean ignoreNotFound)
+   at System.IO.Enumeration.FileSystemEnumerator`1.Init()
+   at System.IO.Enumeration.FileSystemEnumerator`1..ctor(String directory, Boolean isNormalized, EnumerationOptions options)
+   at System.IO.Enumeration.FileSystemEnumerable`1..ctor(String directory, FindTransform transform, EnumerationOptions options, Boolean isNormalized)
+   at System.IO.Enumeration.FileSystemEnumerableFactory.UserFiles(String directory, String expression, EnumerationOptions options)
+   at System.IO.Directory.InternalEnumeratePaths(String path, String searchPattern, SearchTarget searchTarget, EnumerationOptions options)
+   at DbUp.ScriptProviders.FileSystemScriptProvider.GetScripts(IConnectionManager connectionManager)
+   at DbUp.Engine.UpgradeEngine.<GetDiscoveredScriptsAsEnumerable>b__12_0(IScriptProvider scriptProvider)
+   at System.Linq.Enumerable.SelectManySingleSelectorIterator`2.ToArray()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.GetEnumerator()+MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.ToList()
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at DbUp.Engine.UpgradeEngine.GetScriptsToExecuteInsideOperation()
+   at DbUp.Engine.UpgradeEngine.PerformUpgrade()
+2022-04-25 20:26:01.948 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/index.html - -
+2022-04-25 20:26:01.948 +01:00 [INF] Request starting HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 94
+2022-04-25 20:26:02.216 +01:00 [INF] Executing endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 20:26:02.317 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/index.html - - - 200 - text/html;charset=utf-8 374.8696ms
+2022-04-25 20:26:02.798 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - -
+2022-04-25 20:26:02.870 +01:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterAsync(MarketMe.Core.RegistrationViewModel) on controller MarketMe.Controllers.Apis.AccountController (MarketMe).
+2022-04-25 20:26:02.888 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-bundle.js.map - - - 404 - - 89.7849ms
+2022-04-25 20:26:09.216 +01:00 [INF] Request starting HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - -
+2022-04-25 20:26:12.707 +01:00 [INF] Request finished HTTP/1.1 GET https://localhost:44379/swagger/swagger-ui-standalone-preset.js.map - - - 404 - - 3489.5664ms
+2022-04-25 20:26:15.095 +01:00 [INF] Request starting HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - -
+2022-04-25 20:26:15.106 +01:00 [INF] Entity Framework Core 5.0.0 initialized 'MarketDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-04-25 20:26:15.330 +01:00 [INF] Request finished HTTP/2 GET https://localhost:44379/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 234.8210ms
+2022-04-25 20:26:15.831 +01:00 [INF] Executed DbCommand (103ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 500), @p2='?' (Size = 500), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime2), @p15='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CustomersDetails] ([Id], [Address], [BusinessAddress], [BusinessEmail], [BusinessName], [CreatedBy], [CreatedOn], [DeletedBy], [DeletedOn], [Email], [FirstName], [IsDeleted], [LastName], [ModifiedBy], [ModifiedOn], [PhoneNumber])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2022-04-25 20:26:26.221 +01:00 [INF] Executed DbCommand (52ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2022-04-25 20:26:26.389 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2022-04-25 20:26:28.726 +01:00 [INF] Executing OkObjectResult, writing value of type 'MarketMe.Share.Response.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-04-25 20:26:28.780 +01:00 [INF] Executed action MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe) in 25876.2648ms
+2022-04-25 20:26:28.797 +01:00 [INF] Executed endpoint 'MarketMe.Controllers.Apis.AccountController.RegisterAsync (MarketMe)'
+2022-04-25 20:26:28.808 +01:00 [INF] Request finished HTTP/1.1 POST https://localhost:44379/api/account/UserRegistration application/json 94 - 200 - application/json;+charset=utf-8 26860.6666ms

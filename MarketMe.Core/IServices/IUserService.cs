@@ -10,7 +10,7 @@ namespace MarketMe.Core.IServices
 {
    public interface IUserService :IService<CustomersDetails>
     {
-        Task UserRegistration(RegistrationViewModel model);
+        Task<RegistrationViewModel> UserRegistration(RegistrationViewModel model);
         Task UserRegistration(string id);
     }
 }
