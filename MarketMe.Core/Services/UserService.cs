@@ -185,16 +185,23 @@ namespace MarketMe.Core.Services
             };
 
             var checkIsactive = this.SqlQuery<CustomersDetailsViewModel>
-          ("SELECT * FROM [CustomersDetails] i WHERE Email= @Email AND IsActivate <>1 AND IsDeleted <>1",
+          ("SELECT * FROM [CustomersDetails] i WHERE Email= @Email AND IsActive <>1 AND IsDeleted <>1",
        new
        {
            Email = model.Username
 
        }).FirstOrDefault();
 
+
+            if (checkIsactive == null)
+            {
+                this.Results.Add(new ValidationResult($"Account with this {model.Username} not found "));
+                return null;
+            }
+
             if (!checkIsactive.IsActive)
             {
-                this.Results.Add(new ValidationResult($"Account with this {model.Username} is not active, "));
+                this.Results.Add(new ValidationResult($"Account with this {model.Username} not found "));
                 return null;
             }
 

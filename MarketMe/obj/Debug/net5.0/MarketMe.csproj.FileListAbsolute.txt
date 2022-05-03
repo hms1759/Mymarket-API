@@ -452,3 +452,4 @@ C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\tr\Microsoft.Cod
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe\bin\Debug\net5.0\NETCore.MailKit.dll
+C:\Users\hp\source\repos\Mymarket-API\MarketMe\obj\Debug\net5.0\MarketMe.csproj.CopyComplete
