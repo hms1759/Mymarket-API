@@ -8,12 +8,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Dapper.Interfaces;
 using Shared.Dapper.Repository;
+using Shared.Notification.Email;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Walure.Core.Services;
 
 namespace MarketMe
 {
@@ -21,8 +23,12 @@ namespace MarketMe
     {
         public void ConfigureDi(IServiceCollection services)
         {
+            
+            services.AddTransient<ICacheService, CacheService>();
+            services.AddTransient<IMailRecordService, MailRecordService>();
             services.AddTransient<IRegexValidation, RegexValidation>();
             services.AddTransient<IUserService, UserService>();
+            //services.AddTransient<ISendingMail, SendingMail>();
             services.AddTransient<ICustomersDetailsService, CustomersDetailsService>();
 
             string dbConnectionString = this.Configuration.GetConnectionString("Default");
@@ -54,9 +60,19 @@ namespace MarketMe
                                      .AllowAnyHeader());
             });
 
-        var appSettings = new AppSettings();
-        Configuration.Bind(nameof(AppSettings), appSettings);
+            var appSettings = new AppSettings();
+            Configuration.Bind(nameof(AppSettings), appSettings);
             services.AddSingleton(appSettings);
+            
+
+            services.AddScoped<IEmailNotifier, EmailNotifier>();
+            services.AddTransient<IMailService, MailService>();
+            services.AddTransient<IEmailService, EmailService>();
+            var config = new EmailConfiguration();
+            Configuration.Bind("EmailData", config);
+            services.AddSingleton(config);
+
+
         }
 
 

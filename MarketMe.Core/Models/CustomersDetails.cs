@@ -10,7 +10,6 @@ namespace MarketMe.Core.Models
 {
   public  class CustomersDetails : BaseEntity
     {
-       
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
@@ -21,6 +20,7 @@ namespace MarketMe.Core.Models
         public string BusinessEmail { get; set; }
         [StringLength(500)]
         public string BusinessAddress { get; set; }
+        public bool IsActive { get; set; }
 
     }
 }

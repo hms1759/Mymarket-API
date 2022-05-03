@@ -78,7 +78,9 @@ namespace MarketMe.Core.MarketDbContexts
         {
             GuidGenerator = SequentialGuidGenerator.Instance;
         }
+        
         public DbSet<CustomersDetails> CustomersDetails { get; set; }
+        public DbSet<MailRecords> MailRecords { get; set; }
         private static MethodInfo ConfigureGlobalFiltersMethodInfo = typeof(MarketDbContext).GetMethod(nameof(ConfigureGlobalFilters), BindingFlags.Instance | BindingFlags.NonPublic);
 
         protected void ConfigureGlobalFilters<TEntity>(ModelBuilder modelBuilder, IMutableEntityType entityType)

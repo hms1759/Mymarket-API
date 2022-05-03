@@ -3,26 +3,20 @@ using MarketMe.Share.Extensions;
 using MarketMe.Share.Utils.GUIDs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace MarketMe.Core.Models
 {
-    public class MailRecord : Entity, IDateAudit
+    public class MailRecords : BaseEntity
     {
-        public MailRecord()
-        {
-            this.Id = SequentialGuidGenerator.Instance.Create();
-            CreatedOn = DateTime.Now.GetDateUtcNow().ToLocalTime();
-        }
-
-        // public Guid Id { get; set; }
+      
         public string Subject { get; set; }
 
         public string MessageType { get; set; }
         public string Receipient { get; set; }
         public bool IsRead { get; set; }
+        [Required]
         public string Content { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public DateTime? ModifiedOn { get; set; }
     }
 }

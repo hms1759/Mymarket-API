@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace MarketMe.Core.IServices
 {
-    public interface IMailRecordService : IService<MailRecord>
+    public interface IMailRecordService : IService<MailRecords>
     {
         Task<bool> Create(MailRecordViewModel model);
 
-        Task<Page<MailRecordViewModel>> GetAllMailRecords(int pageNumber = 1, int pageSize = 10);
-        Task<Page<MailRecordViewModel>> Filter(NotificationEnum status, int pageNumber = 1, int pageSize = 10);
+        //Task<Page<MailRecordViewModel>> GetAllMailRecords(int pageNumber = 1, int pageSize = 10);
+        //Task<Page<MailRecordViewModel>> Filter(NotificationEnum status, int pageNumber = 1, int pageSize = 10);
 
-        Task<List<MailRecordViewModel>> GetRecordAll();
-        Task<MailRecordViewModel> GetRecordById(Guid Id);
-        Task<bool> UpdateRecord(Guid Id);
+        //Task<List<MailRecordViewModel>> GetRecordAll();
+        //Task<MailRecordViewModel> GetRecordById(Guid Id);
+        //Task<bool> UpdateRecord(Guid Id);
     }
 }

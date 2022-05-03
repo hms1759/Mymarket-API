@@ -31,6 +31,7 @@ namespace MarketMe
                 .WriteTo.Sentry(o => o.Dsn = "https://examplePublicKey@o0.ingest.sentry.io/0")
                  .CreateLogger();
             SeedDatabase(serviceProvider).Wait();
+
             host.Run();
         }
 
