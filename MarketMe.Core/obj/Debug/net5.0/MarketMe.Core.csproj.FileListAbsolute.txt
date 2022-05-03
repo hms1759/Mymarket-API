@@ -291,4 +291,3 @@ C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\refs\System
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\refs\System.Xml.XPath.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\refs\System.Xml.XPath.XDocument.dll
 C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\bin\Debug\net5.0\refs\WindowsBase.dll
-C:\Users\hp\source\repos\Mymarket-API\MarketMe.Core\obj\Debug\net5.0\MarketMe.Core.csproj.CopyComplete

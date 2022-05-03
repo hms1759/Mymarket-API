@@ -1,5 +1,6 @@
 ﻿using MarketMe.Core.IServices;
 using MarketMe.Core.MarketDbContexts;
+using MarketMe.Core.Notification;
 using MarketMe.Core.Services;
 using MarketMe.Share.Models;
 using MarketMe.Share.Validation;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Dapper.Interfaces;
 using Shared.Dapper.Repository;
+using Shared.Notification;
 using Shared.Notification.Email;
 using System;
 using System.Collections.Generic;
@@ -63,9 +65,8 @@ namespace MarketMe
             var appSettings = new AppSettings();
             Configuration.Bind(nameof(AppSettings), appSettings);
             services.AddSingleton(appSettings);
-            
 
-            services.AddScoped<IEmailNotifier, EmailNotifier>();
+            services.AddTransient<IEmailNotifier, EmailNotifier>();
             services.AddTransient<IMailService, MailService>();
             services.AddTransient<IEmailService, EmailService>();
             var config = new EmailConfiguration();

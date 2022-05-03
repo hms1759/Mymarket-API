@@ -63,6 +63,23 @@ namespace MarketMe.Controllers.Apis
 
         }
 
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return base.ApiResponse(default, "Empty payload", ApiResponseCodes.INVALID_REQUEST);
+            }
+
+            var token = await _userService.AccountLogin(model);
+
+            if (_userService.HasError)
+                return ApiResponse(null, _userService.Errors, ApiResponseCodes.ERROR);
+
+            return ApiResponse(token, "User successfully Login", ApiResponseCodes.OK);
+
+        }
+
 
     }
 }

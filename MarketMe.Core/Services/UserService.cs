@@ -2,6 +2,7 @@
 using MarketMe.Core.IServices;
 using MarketMe.Core.MarketDbContexts;
 using MarketMe.Core.Models;
+using MarketMe.Core.Notification;
 using MarketMe.Core.ViewModels;
 using MarketMe.Share.Constants;
 using MarketMe.Share.Extensions;
@@ -10,13 +11,17 @@ using MarketMe.Share.Utils;
 using MarketMe.Share.Validation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using Shared.Dapper;
 using Shared.Dapper.Interfaces;
 using Shared.Notification;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -32,10 +37,12 @@ namespace MarketMe.Core.Services
         private readonly AppSettings _appSettings;
         private readonly IMailRecordService _mailRecordService;
         private readonly IMailService _mailService;
+        //private readonly IMessagingService _messagingService;
         private readonly ICacheService _cacheService;
+        private IConfiguration _configuration;
         public UserService(UserManager<IdentityUser> userManager, MarketDbContext dbContext, IRegexValidation regexValidation,
                                 ICustomersDetailsService customersService, IUnitOfWork uow, IMailRecordService mailRecordService,
-                                 AppSettings appSettings, IMailService mailService, ICacheService cacheService) : base(uow)
+                                IConfiguration configuration, AppSettings appSettings, IMailService mailService, ICacheService cacheService) : base(uow)
         {
             _userManager = userManager;
             _regexValidation = regexValidation;
@@ -44,6 +51,7 @@ namespace MarketMe.Core.Services
             _mailRecordService = mailRecordService;
             _mailService = mailService;
             _cacheService = cacheService;
+            _configuration = configuration;
         }
         public async Task<RegistrationViewModel> UserRegistration(RegistrationViewModel model)
         {
@@ -115,7 +123,7 @@ namespace MarketMe.Core.Services
             request.Body = token;
             request.Subject = Constants.otp_Message;
 
-         //  await _mailService.SendEmailAsync(request);
+            //  await _mailService.SendEmailAsync(request);
 
             await Task.Factory.StartNew(() =>
             {
@@ -126,10 +134,9 @@ namespace MarketMe.Core.Services
                             { "{ Expiredtime}",expiredOn.ToString()},
 
                         };
-
                 MessagingService.Initialize()
-                .AddEmailService(model.Email, "Acount Verification", messageParameters, Constants.otp_Message, Constants.default_email_layout2)
-                    .Send();
+                           .AddEmailService(model.Email, "Acount Verification", messageParameters, Constants.otp_Message, Constants.default_email_layout2)
+                       .Send();
             });
 
 
@@ -149,9 +156,70 @@ namespace MarketMe.Core.Services
             return model;
         }
 
-        public async Task R(string id)
+        public async Task<tokenViewModel> AccountLogin(LoginViewModel model)
         {
-            throw new NotImplementedException();
+            if (model.Username == null || model.Password == null)
+            {
+                this.Results.Add(new ValidationResult($"Email  or  Password is emptied"));
+                return null;
+            }
+
+            var ValidEmail = _regexValidation.EmailValidation(model.Username);
+            if (!ValidEmail)
+            {
+                this.Results.Add(new ValidationResult($"Invalid Email"));
+                return null;
+            };
+            var user = await _userManager.FindByEmailAsync(model.Username);
+            if (user == null)
+            {
+                this.Results.Add(new ValidationResult($"No user with this username {model.Username}"));
+                return null;
+            };
+
+            var result = await _userManager.CheckPasswordAsync(user, model.Password);
+            if (!result)
+            {
+                this.Results.Add(new ValidationResult($"Invalid password"));
+                return null;
+            };
+
+            var checkIsactive = this.SqlQuery<CustomersDetailsViewModel>
+          ("SELECT * FROM [CustomersDetails] i WHERE Email= @Email AND IsActivate <>1 AND IsDeleted <>1",
+       new
+       {
+           Email = model.Username
+
+       }).FirstOrDefault();
+
+            if (!checkIsactive.IsActive)
+            {
+                this.Results.Add(new ValidationResult($"Account with this {model.Username} is not active, "));
+                return null;
+            }
+
+            var claims = new[]
+            {
+                new Claim ("Email", user.Email),
+                new Claim ("Phone", user.PhoneNumber),
+                new Claim(ClaimTypes.NameIdentifier, user.Id)
+            };
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var token = new JwtSecurityToken(
+
+                    issuer: _configuration["Jwt:Issuer"],
+                    audience: _configuration["Jwt:Audience"],
+                    claims: claims,
+                    expires: DateTime.Now.AddHours(10),
+                    signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
+
+                );
+            string tokenstring = new JwtSecurityTokenHandler().WriteToken(token);
+            var logResponce = new tokenViewModel();
+            logResponce.token = tokenstring;
+            logResponce.ExpireOn = token.ValidTo;
+            return logResponce;
+            //  throw new NotImplementedException();
         }
 
         public async Task<CustomersDetailsViewModel> accountVerificationAsync(AccountVerificationViewModel model)

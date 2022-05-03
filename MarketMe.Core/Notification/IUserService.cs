@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace MarketMe.Core.IServices
 {
-   public interface IUserService :IService<CustomersDetails>
+    public interface IUserService : IService<CustomersDetails>
     {
+        Task<tokenViewModel> AccountLogin(LoginViewModel model);
         Task<RegistrationViewModel> UserRegistration(RegistrationViewModel model);
         Task<CustomersDetailsViewModel> accountVerificationAsync(AccountVerificationViewModel model);
     }

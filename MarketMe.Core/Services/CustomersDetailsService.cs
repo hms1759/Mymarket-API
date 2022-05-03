@@ -25,9 +25,24 @@ namespace MarketMe.Core.Services
             throw new NotImplementedException();
         }
 
-        public Task<CustomersDetailsViewModel> GetCustomerwithId(Guid id)
+        public async Task<CustomersDetailsViewModel> GetCustomerwithId(Guid id)
         {
-            throw new NotImplementedException();
+
+            var user = this.SqlQuery<CustomersDetailsViewModel>
+          ("SELECT * FROM [CustomersDetails] i WHERE Id= @Id AND IsActivate <>1 AND IsDeleted <>1",
+       new
+       {
+           Id = id
+
+       }).FirstOrDefault();
+
+            if (user == null)
+            {
+                this.Results.Add(new ValidationResult($"Account not found"));
+                return null;
+            }
+            return user;
+
         }
     }
 }

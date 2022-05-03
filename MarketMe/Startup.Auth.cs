@@ -22,6 +22,7 @@ namespace MarketMe
                 options.Password.RequireLowercase = true;
                 options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequiredLength = 6;
+               
             }).AddEntityFrameworkStores<MarketDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -40,9 +41,7 @@ namespace MarketMe
                     ValidIssuer = Configuration["Jwt:Issuer"],
                     ValidAudience = Configuration["Jwt:Audience"],
                     IssuerSigningKey = new
-                    SymmetricSecurityKey
-                    (Encoding.UTF8.GetBytes
-                    (Configuration["Jwt:Key"]))
+                    SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
         }
