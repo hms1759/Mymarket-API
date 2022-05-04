@@ -28,20 +28,22 @@ namespace MarketMe.Core.Services
         public async Task<CustomersDetailsViewModel> GetCustomerwithId(Guid id)
         {
 
-            var user = this.SqlQuery<CustomersDetailsViewModel>
-          ("SELECT * FROM [CustomersDetails] i WHERE Id= @Id AND IsActivate <>1 AND IsDeleted <>1",
-       new
-       {
-           Id = id
+            var user = this.SqlQuery<CustomersDetails>
+          ("SELECT * FROM [CustomersDetails] i WHERE Id= @Id AND IsActive <>1 AND IsDeleted <>1",
+           new
+           {
+               Id = id
 
-       }).FirstOrDefault();
+           }).FirstOrDefault();
 
             if (user == null)
             {
                 this.Results.Add(new ValidationResult($"Account not found"));
                 return null;
             }
-            return user;
+
+            var userDetail = (CustomersDetailsViewModel)user;
+            return userDetail;
 
         }
     }

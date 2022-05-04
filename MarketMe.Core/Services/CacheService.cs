@@ -1,4 +1,5 @@
 ﻿using MarketMe.Core.IServices;
+using MarketMe.Core.ViewModels;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
@@ -12,19 +13,19 @@ namespace MarketMe.Core.Services
     {
         private static IMemoryCache _cache = new MemoryCache(new MemoryCacheOptions());
 
-        public string GetCacheData(string email)
+        public tokenViewModel GetCacheData(string email)
         {
-            var result = _cache.Get<string>(email);
+            var result = _cache.Get<tokenViewModel>(email);
             return result;
         }
 
-        public void SetCacheData(string email, string token)
+        public void SetCacheData(tokenViewModel model)
         {
             var cacheExpiredOn = new MemoryCacheEntryOptions()
             {
-                AbsoluteExpiration = DateTime.Now.AddMinutes(5)
+                AbsoluteExpiration = model.ExpireOn
             };
-            _cache.Set( email, token, cacheExpiredOn);
+            _cache.Set(model.Email, model, cacheExpiredOn);
             return;
         }
 

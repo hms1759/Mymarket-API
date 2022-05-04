@@ -102,7 +102,7 @@ namespace MarketMe.Core.Services
             var customerDetail = new CustomersDetails();
             customerDetail.Email = model.Email;
             customerDetail.PhoneNumber = model.PhoneNumber;
-            customerDetail.IsActive = true;
+          //  customerDetail.IsActive = true;
 
             var result = await _userManager.CreateAsync(User, model.Password);
 
@@ -116,28 +116,33 @@ namespace MarketMe.Core.Services
 
             var token = RandomGenerator.GenerateAPPKeys(model.Email);
 
-            _cacheService.SetCacheData(model.Email, token);
+            var tokenList = new tokenViewModel();
+            tokenList.Email = model.Email;
+            tokenList.Token = token;
+            tokenList.ExpireOn = DateTime.Now.AddMinutes(15);
+
+            _cacheService.SetCacheData(tokenList);
 
             var request = new MailRequest();
             request.ToEmail = model.Email;
             request.Body = token;
             request.Subject = Constants.otp_Message;
 
-            //  await _mailService.SendEmailAsync(request);
+          //  //  await _mailService.SendEmailAsync(request);
 
-            await Task.Factory.StartNew(() =>
-            {
-                var expiredOn = DateTime.Now.AddMinutes(3);
-                var messageParameters = new Dictionary<string, string>
-                        {
-                            { "{OTP}",token},
-                            { "{ Expiredtime}",expiredOn.ToString()},
+            //await Task.Factory.StartNew(() =>
+            //{
+            //    var expiredOn = DateTime.Now.AddMinutes(3);
+            //    var messageParameters = new Dictionary<string, string>
+            //            {
+            //                { "{OTP}",token},
+            //                { "{ Expiredtime}",expiredOn.ToString()},
 
-                        };
-                MessagingService.Initialize()
-                           .AddEmailService(model.Email, "Acount Verification", messageParameters, Constants.otp_Message, Constants.default_email_layout2)
-                       .Send();
-            });
+            //            };
+            //    MessagingService.Initialize()
+            //               .AddEmailService(model.Email, "Acount Verification", messageParameters, Constants.otp_Message, Constants.default_email_layout2)
+            //           .Send();
+            //});
 
 
             var mailrecord = new MailRecords
@@ -185,7 +190,7 @@ namespace MarketMe.Core.Services
             };
 
             var checkIsactive = this.SqlQuery<CustomersDetailsViewModel>
-          ("SELECT * FROM [CustomersDetails] i WHERE Email= @Email AND IsActive <>1 AND IsDeleted <>1",
+          ("SELECT * FROM [CustomersDetails] i WHERE Email= @Email AND IsDeleted <>1",
        new
        {
            Email = model.Username
@@ -201,7 +206,7 @@ namespace MarketMe.Core.Services
 
             if (!checkIsactive.IsActive)
             {
-                this.Results.Add(new ValidationResult($"Account with this {model.Username} not found "));
+                this.Results.Add(new ValidationResult($"Account with this {model.Username} is not Active"));
                 return null;
             }
 
@@ -223,7 +228,7 @@ namespace MarketMe.Core.Services
                 );
             string tokenstring = new JwtSecurityTokenHandler().WriteToken(token);
             var logResponce = new tokenViewModel();
-            logResponce.token = tokenstring;
+            logResponce.Token = tokenstring;
             logResponce.ExpireOn = token.ValidTo;
             return logResponce;
             //  throw new NotImplementedException();
@@ -237,7 +242,7 @@ namespace MarketMe.Core.Services
                 return null;
             }
 
-            var user = this.SqlQuery<CustomersDetailsViewModel>
+            var user = this.SqlQuery<CustomersDetails>
                 ("SELECT * FROM [CustomersDetails] i WHERE Email= @Email AND IsDeleted <>1",
              new
              {
@@ -257,24 +262,31 @@ namespace MarketMe.Core.Services
                 return null;
             }
 
-            var token = _cacheService.GetCacheData(model.Email);
+            var tokenList = _cacheService.GetCacheData(model.Email);
 
-            if (token == null)
+            if (tokenList == null)
             {
                 this.Results.Add(new ValidationResult($" OTP expired"));
                 return null;
             }
 
-            if (token != model.OTP)
+            if (tokenList.Token != model.OTP )
             {
-                this.Results.Add(new ValidationResult($" Incorrect OTP {token}"));
+                this.Results.Add(new ValidationResult($" Incorrect OTP {model.OTP}"));
+                return null;
+            }
+
+            if (tokenList.Email != model.Email)
+            {
+                this.Results.Add(new ValidationResult($" Incorrect Email {model.Email}"));
                 return null;
             }
 
             user.IsActive = true;
-            var userDetail = (CustomersDetails)user;
-            await this.UpdateAsync(userDetail);
-            return user;
+            await this.UpdateAsync(user);
+
+            var userDetail = (CustomersDetailsViewModel)user;
+            return userDetail;
         }
 
 

@@ -59,7 +59,7 @@ namespace MarketMe.Controllers.Apis
             if (_userService.HasError)
                 return ApiResponse(null, _userService.Errors, ApiResponseCodes.ERROR);
 
-            return ApiResponse(model, "User successfully created", ApiResponseCodes.OK);
+            return ApiResponse(model, "Account Verified and activated", ApiResponseCodes.OK);
 
         }
 

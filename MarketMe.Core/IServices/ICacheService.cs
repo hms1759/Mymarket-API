@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarketMe.Core.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,8 @@ namespace MarketMe.Core.IServices
 {
     public interface ICacheService
     {
-        void SetCacheData(string email, string  token);
-        string GetCacheData(string email);
+        void SetCacheData(tokenViewModel model);
+        tokenViewModel GetCacheData(string email);
 
     }
 }
