@@ -25,6 +25,11 @@ namespace MarketMe.Core.Services
             throw new NotImplementedException();
         }
 
+        public Task<CustomersDetailsViewModel> GetCustomerWithEmial(string email)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<CustomersDetailsViewModel> GetCustomerwithId(Guid id)
         {
 
