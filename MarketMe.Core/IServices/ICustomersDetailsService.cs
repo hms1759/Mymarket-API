@@ -13,6 +13,7 @@ namespace MarketMe.Core.IServices
     {
         Task<IEnumerable<CustomersDetailsViewModel>> GetCustomers();
         Task<CustomersDetailsViewModel> GetCustomerwithId(Guid id);
+        Task<CustomersDetailsViewModel> GetCustomerWithEmial(string email);
 
     }
 }
