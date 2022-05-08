@@ -36,24 +36,24 @@ namespace MarketMe.Apis
             if (_customersDetailsService.HasError)
                 return ApiResponse(null, _customersDetailsService.Errors, ApiResponseCodes.ERROR);
 
-            return ApiResponse(user, "User successfully created", ApiResponseCodes.OK);
+            return ApiResponse(user, "Customer successfully created", ApiResponseCodes.OK);
 
         }
 
-        [HttpGet("Customer/{Id}")]
-        public async Task<IActionResult> GetCustomerWithId(Guid id)
+        [HttpGet("{Customer_Id}")]
+        public async Task<IActionResult> GetCustomerWithId(Guid Customer_Id)
         {
             if (!ModelState.IsValid)
             {
                 return base.ApiResponse(default, "Empty payload", ApiResponseCodes.INVALID_REQUEST);
             }
 
-            var user = await _customersDetailsService.CustomerwithId_Entity(id);
+            var user = await _customersDetailsService.CustomerwithId_Entity(Customer_Id);
 
             if (_customersDetailsService.HasError)
                 return ApiResponse(null, _customersDetailsService.Errors, ApiResponseCodes.ERROR);
 
-            return ApiResponse(user, "User successfully created", ApiResponseCodes.OK);
+            return ApiResponse(user, "", ApiResponseCodes.OK);
 
         }
         [HttpGet("GetAll")]
@@ -69,7 +69,7 @@ namespace MarketMe.Apis
             if (_customersDetailsService.HasError)
                 return ApiResponse(null, _customersDetailsService.Errors, ApiResponseCodes.ERROR);
 
-            return ApiResponse(user, "User successfully created", ApiResponseCodes.OK);
+            return ApiResponse(user, "", ApiResponseCodes.OK);
 
         }
         [HttpPost("Delete/{Id}")]
@@ -85,11 +85,11 @@ namespace MarketMe.Apis
             if (_customersDetailsService.HasError)
                 return ApiResponse(null, _customersDetailsService.Errors, ApiResponseCodes.ERROR);
 
-            return ApiResponse(user, "User successfully created", ApiResponseCodes.OK);
+            return ApiResponse(user, "User successfully Deleted", ApiResponseCodes.OK);
 
         }
         [HttpPost("Update")]
-        public async Task<IActionResult> UpdateCustomer(CustomersDetailsViewModel model)
+        public async Task<IActionResult> UpdateCustomer([FromBody] CustomersDetailsViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace MarketMe.Apis
             if (_customersDetailsService.HasError)
                 return ApiResponse(null, _customersDetailsService.Errors, ApiResponseCodes.ERROR);
 
-            return ApiResponse(user, "User successfully created", ApiResponseCodes.OK);
+            return ApiResponse(user, "User successfully Updated", ApiResponseCodes.OK);
 
         }
     }
