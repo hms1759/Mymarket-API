@@ -30,17 +30,12 @@ namespace MarketMe.Share.ViewModels
         [JsonIgnore]
         public virtual List<string> ErrorList { get; set; } = new List<string>();
         [JsonIgnore]
-        public Guid Created_Id { get; set; }
-        [JsonIgnore]
         public int TotalCount { get; set; }
         public T Payload { get; set; }
         public string CreatedOn { get; set; }
         public string ModifiedOn { get; set; }
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
-        public long RowNo { get; set; }
-        public string StatusMessage { get; set; }
-        public string Status { get; set; } = "Unknown";
     }
 
     [Serializable]

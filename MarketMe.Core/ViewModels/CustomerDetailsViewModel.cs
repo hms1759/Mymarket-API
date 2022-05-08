@@ -1,4 +1,5 @@
 ﻿using MarketMe.Core.Models;
+using MarketMe.Share.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MarketMe.Core.ViewModels
 {
-    public class CustomersDetailsViewModel
+    public class CustomersDetailsViewModel : BaseViewModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
