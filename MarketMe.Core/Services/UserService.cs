@@ -128,7 +128,7 @@ namespace MarketMe.Core.Services
             request.Body = token;
             request.Subject = Constants.otp_Message;
 
-          //  //  await _mailService.SendEmailAsync(request);
+          await _mailService.SendEmailAsync(request);
 
             //await Task.Factory.StartNew(() =>
             //{

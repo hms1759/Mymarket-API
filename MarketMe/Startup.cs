@@ -46,13 +46,14 @@ namespace MarketMe
             ConfigureDi(services);
             ConfigureAuth(services);
             services.AddMvc();
-            services.AddCors(
-                c => c.AddPolicy("AllowOrigin", options => options.AllowAnyHeader()
-                                                                 .AllowAnyOrigin()
-                                                                 .AllowAnyMethod()
-                                                                 .AllowAnyHeader())
-                );
+            //services.AddCors(
+            //    c => c.AddPolicy("AllowOrigin", options => options.AllowAnyHeader()
+            //                                                     .AllowAnyOrigin()
+            //                                                     .AllowAnyMethod()
+            //                                                     .AllowAnyHeader())
+            //    );
 
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,21 +70,21 @@ namespace MarketMe
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MarketMe v1"));
             }
-            app.Use(async (ctx, next) =>
-            {
-                ctx.Request.EnableBuffering();
+            //app.Use(async (ctx, next) =>
+            //{
+            //    ctx.Request.EnableBuffering();
 
-                if (ctx.Request.IsAjaxRequest() || ctx.Request.Path.Value.StartsWith("/api", StringComparison.OrdinalIgnoreCase)
-                 || ctx.Request.Path.Value.StartsWith("/apps", StringComparison.OrdinalIgnoreCase))
-                {
-                    var statusCodeFeature = ctx.Features.Get<IStatusCodePagesFeature>();
+            //    if (ctx.Request.IsAjaxRequest() || ctx.Request.Path.Value.StartsWith("/api", StringComparison.OrdinalIgnoreCase)
+            //     || ctx.Request.Path.Value.StartsWith("/apps", StringComparison.OrdinalIgnoreCase))
+            //    {
+            //        var statusCodeFeature = ctx.Features.Get<IStatusCodePagesFeature>();
 
-                    if (statusCodeFeature != null && statusCodeFeature.Enabled)
-                        statusCodeFeature.Enabled = false;
-                }
+            //        if (statusCodeFeature != null && statusCodeFeature.Enabled)
+            //            statusCodeFeature.Enabled = false;
+            //    }
 
-                await next();
-            });
+            //    await next();
+            //});
 
             app.UseHttpsRedirection();
 
