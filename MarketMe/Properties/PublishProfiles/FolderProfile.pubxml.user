@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\wfroot\mymarketapp</_PublishTargetUrl>
+    <History>True|2022-05-11T03:55:59.3866646Z;False|2022-05-11T04:53:51.5517375+01:00;True|2022-05-10T18:45:48.4295730+01:00;True|2022-05-10T18:43:32.4837499+01:00;</History>
+  </PropertyGroup>
+</Project>
